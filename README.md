@@ -14,8 +14,7 @@ Also Mailpit is included, which can be opened on [`http://localhost:8025`](http:
 
 > **Note:** Because the application is not done and tested yet, the installation may be incorrect and incomplete.
 
-Before running the commands, please make sure you have [Docker](https://www.docker.com/get-started/), [PHP, Composer and Laravel (install script from Laravel)](https://laravel.com/framework/docs/installation#installing-php) installed. 
-
+Before running the commands, please make sure you have [Docker](https://www.docker.com/get-started/), [PHP, Composer and Laravel (install script from Laravel)](https://laravel.com/framework/docs/installation#installing-php) installed.
 
 1. Clone this repository: `git clone https://github.com/stevenemr/cleanupify`
 2. Download the composer pacakages: `composer install`
@@ -25,4 +24,8 @@ Before running the commands, please make sure you have [Docker](https://www.dock
 
 ## Development
 
-Cleanupify will be developed using the [TDD technique (Test Driven Development)](https://en.wikipedia.org/wiki/Test-driven_development). This means that all new created features must have a test written for them. 
+Cleanupify will be developed using the [TDD technique (Test Driven Development)](https://en.wikipedia.org/wiki/Test-driven_development). This means that all new created features must have a test written for them.
+
+## Credits
+
+- Color palette by [VEV Design](https://www.vev.design/blog/dark-mode-website-color-palette/) (Monochromatic Minimalism)

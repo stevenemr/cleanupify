@@ -1,4 +1,67 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@import "@fontsource/bebas-neue";
+@import "@fontsource-variable/inter";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+
+@theme {
+    --color-charcoal: #121212;
+    --color-light-gray: #e0e0e0;
+    --color-medium-gray: #b0b0b0;
+    --color-dark-gray: #444444;
+    --color-soft-gray: #888888;
+
+    --font-bebas-neue: "Bebas Neue", sans-serif;
+    --font-inter: "Inter Variable", sans-serif;
+}
+
+@utility container {
+    @apply mx-auto px-5;
+}
+
+html {
+    @apply bg-charcoal text-light-gray font-inter;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @apply font-bebas-neue;
+}
+
+h1 {
+    @apply text-4xl;
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+h3 {
+    @apply text-2xl;
+}
+
+h4 {
+    @apply text-xl;
+}
+
+/* Buttons */
+.btn {
+    @apply inline-block rounded-full py-2 px-5 hover:scale-[0.97] transition-all;
+}
+
+.btn.btn-white {
+    @apply bg-white text-black;
+}
+
+.bg-glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}

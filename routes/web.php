@@ -10,6 +10,8 @@ use App\Http\Controllers\AuthenticationController;
 
 Route::inertia('/', 'Home');
 
+Route::inertia('/about', 'About');
+
 Route::get('/login', [AuthenticationController::class, 'login'])->name('auth.login');
 
 Route::get('/callback', [AuthenticationController::class, 'callback'])->name('auth.callback');
