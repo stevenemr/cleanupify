@@ -1,5 +1,12 @@
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import { computed, ref } from "vue";
+import { Link, usePage } from "@inertiajs/vue3";
+
+const page = usePage();
+
+const user = computed(() => page.props.auth.user);
+
+const isDropdownOpen = ref(false);
 </script>
 
 <template>
@@ -7,14 +14,57 @@ import { Link } from "@inertiajs/vue3";
         <!-- Navbar -->
         <header class="py-5 bg-linear-to-b from-dark-gray to-transparent">
             <div class="container flex justify-between items-center">
-                <Link class="text-4xl font-bebas-neue" href="/"
-                    >Cleanupify</Link
-                >
+                <Link class="text-4xl font-bebas-neue" href="/">
+                    Cleanupify
+                </Link>
 
                 <ul class="hidden md:flex gap-7 items-center">
                     <li><Link href="/">Home</Link></li>
                     <li><Link href="/about">About</Link></li>
-                    <li>
+
+                    <li v-if="user" class="relative">
+                        <button
+                            @click="isDropdownOpen = !isDropdownOpen"
+                            class="flex items-center gap-3"
+                            type="button"
+                        >
+                            <div class="text-right">
+                                <p class="text-[10px]">Welcome,</p>
+                                <p>{{ user.display_name }}</p>
+                            </div>
+
+                            <img
+                                :src="user.images[1].url"
+                                class="rounded-full h-10 w-10"
+                                :alt="user.display_name"
+                            />
+                        </button>
+
+                        <div
+                            v-if="isDropdownOpen"
+                            class="absolute right-0 mt-2 min-w-48 rounded-md bg-dark-gray py-2 shadow-lg z-20 border border-white/10"
+                        >
+                            <Link
+                                href="/app/home"
+                                class="block px-4 py-2 text-sm text-white hover:bg-white/10"
+                                @click="isDropdownOpen = false"
+                            >
+                                Dashboard
+                            </Link>
+
+                            <Link
+                                href="/logout"
+                                method="post"
+                                as="button"
+                                class="w-full text-left block px-4 py-2 text-sm text-red-400 hover:bg-white/10"
+                                @click="isDropdownOpen = false"
+                            >
+                                Logout
+                            </Link>
+                        </div>
+                    </li>
+
+                    <li v-else>
                         <a class="btn btn-white" href="/login">Login</a>
                     </li>
                 </ul>

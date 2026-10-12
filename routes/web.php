@@ -8,7 +8,7 @@ use Inertia\Inertia;
 // Controllers
 use App\Http\Controllers\AuthenticationController;
 
-Route::inertia('/', 'Home');
+Route::inertia('/', 'Home')->name('home');
 
 Route::inertia('/about', 'About');
 
@@ -29,3 +29,8 @@ Route::get('/app/home', function () {
     ]);
 })->name('app.home');
 
+Route::post('/logout', function () {
+    Session::forget('spotify');
+
+    return redirect()->route('home');
+});
